@@ -68,12 +68,17 @@ source ~/.bashrc
 sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
 
 # velodyne and camera 1394 from source
-mkdir -p ~/Documents/RobotX_WS/src
-cd ~/Documents/RobotX_WS/src
+mkdir -p ~/Documents/Catkin_WS/src
+cd ~/Documents/Catkin_WS/src
 git clone https://github.com/ros-drivers/velodyne.git
 git clone https://github.com/ros-drivers/camera1394.git
-cd ~/Documents/RobotX_WS/
+cd ~/Documents/Catkin_WS/
 catkin_make
+
+# add worspace to path
+echo "source ~/Documents/Catkin_WS/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
 
 # Ubuntu Extras
 sudo apt install tlp tlp-rdw
