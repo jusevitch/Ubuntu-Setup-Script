@@ -67,11 +67,13 @@ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
 
-# velodyne and camera 1394 from source
+# velodyne, LOAM and camera 1394 from source
+# source for LOAM - https://github.com/laboshinl/loam_velodyne
 mkdir -p ~/Documents/Catkin_WS/src
 cd ~/Documents/Catkin_WS/src
 git clone https://github.com/ros-drivers/velodyne.git
 git clone https://github.com/ros-drivers/camera1394.git
+git clone https://github.com/laboshinl/loam_velodyne.git
 cd ~/Documents/Catkin_WS/
 catkin_make
 
@@ -104,3 +106,6 @@ sudo apt-get update
 # sudo apt-get install -y ros-kinetic-librealsense-camera
 sudo apt-get install -y ros-kinetic-turtlebot
 sudo apt-get install ros-kinetic-turtlebot-gazebo
+
+# update and upgrade
+sudo apt update && sudo apt upgrade
