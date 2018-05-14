@@ -89,3 +89,18 @@ sudo apt-get install vlc
 
 # update and upgrade
 sudo apt update && sudo apt upgrade
+
+
+# install turtlebot gazebo on Kinetic
+# link - https://answers.ros.org/question/246015/installing-turtlebot-on-ros-kinetic/
+sudo apt-get install -y linux-headers-generic
+sudo sh -c 'echo "deb-src http://us.archive.ubuntu.com/ubuntu/ xenial main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-updates main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse
+deb-src http://security.ubuntu.com/ubuntu xenial-security main restricted" > \
+  /etc/apt/sources.list.d/official-source-repositories.list'
+sudo apt-get update
+# sudo apt-get install -y ros-kinetic-librealsense
+# sudo apt-get install -y ros-kinetic-librealsense-camera
+sudo apt-get install -y ros-kinetic-turtlebot
+sudo apt-get install ros-kinetic-turtlebot-gazebo
