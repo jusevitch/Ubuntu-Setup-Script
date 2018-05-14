@@ -109,3 +109,32 @@ sudo apt-get install ros-kinetic-turtlebot-gazebo
 
 # update and upgrade
 sudo apt update && sudo apt upgrade
+
+# instal Google Cartographer
+sudo apt-get install -y python-wstool python-rosdep ninja-build
+cd ~/Documents/Catkin_WS/src
+wstool init src
+
+# Merge the cartographer_ros.rosinstall file and fetch code for dependencies.
+wstool merge -t src https://raw.githubusercontent.com/googlecartographer/cartographer_ros/master/cartographer_ros.rosinstall
+wstool update -t src
+
+# Install proto3
+src/cartographer/scripts/install_proto3.sh
+
+# Install deb dependencies.
+rosdep update
+rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y
+
+# Build and install.
+catkin_make_isolated --install --use-ninja
+source install_isolated/setup.bash
+
+# Run Demos if required
+# Download the 2D backpack example bag and run demo 
+# wget -P ~/Downloads https://storage.googleapis.com/cartographer-public-data/bags/backpack_2d/cartographer_paper_deutsches_museum.bag
+# roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:=${HOME}/Downloads/cartographer_paper_deutsches_museum.bag
+
+# Download the 3D backpack example bag and run demo
+# wget -P ~/Downloads https://storage.googleapis.com/cartographer-public-data/bags/backpack_3d/with_intensities/b3-2016-04-05-14-14-00.bag
+# roslaunch cartographer_ros demo_backpack_3d.launch bag_filename:=${HOME}/Downloads/b3-2016-04-05-14-14-00.bag
