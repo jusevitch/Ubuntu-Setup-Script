@@ -88,6 +88,7 @@ echo "source ~/Documents/Catkin_WS/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 # Ubuntu Extras
+sudo apt install gksu
 sudo apt install tlp tlp-rdw
 sudo tlp start
 sudo apt install gnome-tweak-tool
