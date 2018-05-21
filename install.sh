@@ -114,6 +114,8 @@ sudo apt-get update
 # sudo apt-get install -y ros-kinetic-librealsense-camera
 sudo apt-get install -y ros-kinetic-turtlebot
 sudo apt-get install ros-kinetic-turtlebot-gazebo
+sudo apt-get install ros-kinetic-turtlebot*
+sudo apt-get install ros-kinetic-ros
 
 # update and upgrade
 sudo apt update && sudo apt upgrade
