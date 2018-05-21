@@ -67,6 +67,12 @@ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
 
+# install catkin tools
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install python-catkin-tools
+
 # velodyne, LOAM and camera 1394 from source
 # source for LOAM - https://github.com/laboshinl/loam_velodyne
 mkdir -p ~/Documents/Catkin_WS/src
@@ -81,13 +87,15 @@ catkin_make
 echo "source ~/Documents/Catkin_WS/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
-
 # Ubuntu Extras
 sudo apt install tlp tlp-rdw
 sudo tlp start
 sudo apt install gnome-tweak-tool
 sudo apt-get install ubuntu-restricted-extras
 sudo apt-get install vlc
+sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+sudo apt-get update
+sudo apt-get install simplescreenrecorder
 
 # update and upgrade
 sudo apt update && sudo apt upgrade
@@ -131,7 +139,7 @@ catkin_make_isolated --install --use-ninja
 source install_isolated/setup.bash
 
 # Run Demos if required
-# Download the 2D backpack example bag and run demo 
+# Download the 2D backpack example bag and run demo
 # wget -P ~/Downloads https://storage.googleapis.com/cartographer-public-data/bags/backpack_2d/cartographer_paper_deutsches_museum.bag
 # roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:=${HOME}/Downloads/cartographer_paper_deutsches_museum.bag
 
