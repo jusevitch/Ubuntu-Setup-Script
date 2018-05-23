@@ -98,6 +98,11 @@ sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
 sudo apt-get update
 sudo apt-get install simplescreenrecorder
 
+# Configure Networks and Disable Firewall
+sudo apt-get install openssh-server
+sudo ufw allow ssh and sudo ufw reload
+sudo service iptables restart
+
 # update and upgrade
 sudo apt update && sudo apt upgrade
 
