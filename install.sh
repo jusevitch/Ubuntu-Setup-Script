@@ -75,9 +75,9 @@ sudo apt-get install python-catkin-tools
 
 # velodyne, LOAM and camera 1394 from source
 # source for LOAM - https://github.com/laboshinl/loam_velodyne
+sudo apt-get install ros-kinetic-velodyne*
 mkdir -p ~/Documents/Catkin_WS/src
 cd ~/Documents/Catkin_WS/src
-git clone https://github.com/ros-drivers/velodyne.git
 git clone https://github.com/ros-drivers/camera1394.git
 git clone https://github.com/laboshinl/loam_velodyne.git
 cd ~/Documents/Catkin_WS/
